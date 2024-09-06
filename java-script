@@ -1,0 +1,119 @@
+// Dançarina Imperfeita, 12
+// Your Name, 12
+// La La Land, LIVRE
+// Red White & Royal Blue, 14
+// Depois Da Chuva, 12
+
+// animação, comédia, drama, romance, musical
+
+// dançarina imperfeita,12 , comédia , musical
+// your name, 12, animação, drama, romance
+// la la land, LIVRE, drama, comédia, musical, romance
+// depois da chuva, 12, drama, animação, romance
+// red white & royal blue, 14, comédia, romance
+// Doukyuusei, 14, drama, romance
+
+let campoIdade;
+
+function setup() {
+  createCanvas(400, 400);
+  campoIdade = createInput("15");
+}
+
+function draw() {
+  background(220);
+  let idade = 15; // exemplo de idade
+  let recomendacao = geraRecomendacao(idade);
+  text(recomendacao, width / 2, height / 2);
+}
+
+function geraRecomendacao(idade) {
+  if (idade >= 12) {
+    if (idade >= 14) {
+      return "Doukyuusei";
+    } else {
+      return "la la land";
+    }
+  } else {
+    return "Depois da chuva";
+  }
+}
+
+function geraRecomendacao(idade, gostaDrama, gostaDeAnimação) {
+  if (idade >= 12) {
+    if (idade >= 14) {
+      return "Dançarina Imperfeita";
+    } else {
+      if (idade >= 12) {
+        if(gostaDeDrama || gostaDeAnimação) {
+          return "Depois da Chuva";          
+        } else{
+         return "Your Name";
+        }
+      } else {
+        if (gostaDeDrama) {
+          return "Doukyokuusei";
+        } else {
+          return "La La Land";
+        }
+      }
+    }
+  } else {
+    if (gostaDeDrama) {
+      return "Your Name";
+    } else {
+       return "Depois da Chuva";
+    }
+  }
+}
+
+function setup() {
+    createCanvas(800, 400);
+    createSpan("Sua idade:");
+    campoIdade = createInput("5");
+    campoDrama = createCheckbox(" Gosta de drama?");
+}
+
+function draw() {
+    background("white");
+    let idade = campoIdade.value();
+    let gostaDeDrama = campoDrama.checked();
+    let recomendacao = geraRecomendacao(idade, gostaDeDrama);
+
+    fill(color(76, 0, 115));
+    textAlign(CENTER, CENTER);
+    textSize(38);
+    text(recomendacao, width / 2, height / 2);
+}
+
+function geraRecomendacao(idade, gostaDeDrama) {
+    if (idade >= 12) {
+        if (idade >= 14) {
+            return "Dançarina Imperfeita";
+        } else {
+            if (gostaDeDrama) {
+                return "Red  White & Royal Blue";
+            } else {
+                return "Depois da chuva";
+            }
+        }
+    } else {
+        if (gostaDeDrama) {
+            return "Your Name";
+        } else {
+            return "Doukyuusei";
+        }
+    }
+}
+
+function setup() {
+  createCanvas(800, 400);
+  createElement("h2", "Recomendador de filmes");
+  createSpan("Sua idade:");
+  campoIdade = createInput("5");
+  campoDrama = createCheckbox("Gosta de drama?");
+}
+
+
+
+
